@@ -102,12 +102,8 @@ Arrancamos un contenedor llamado `bbdd` con la imagen `mariadb:latest`, accesibl
 - Usuario: `invitado`.
 - Contraseña del usuario: `invitado`.
 
-      docker run -d --name bbdd -p 3336:3306 \
-      -e MARIADB_ROOT_PASSWORD=root \
-      -e MARIADB_DATABASE=prueba \
-      -e MARIADB_USER=invitado \
-      -e MARIADB_PASSWORD=invitado \
-      mariadb:latest
+      docker run -d --name bbdd -p 3336:3306 -e MARIADB_ROOT_PASSWORD=root -e MARIADB_DATABASE=prueba
+      -e MARIADB_USER=invitado -e MARIADB_PASSWORD=invitado mariadb:latest
 
 ![Base de Datos MariaDB Arrancada](IMAGENES/image17.png)
 
