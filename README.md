@@ -1,6 +1,6 @@
 # Tarea módulo 2: Ejecutando y gestionando contenedores
 
-## 2.2. Instalación de imágenes
+## 1. Instalación de imágenes
 
 Instalamos los siguientes servicios mediante el comando `docker pull`:
 
@@ -30,9 +30,9 @@ Ejecutamos `docker images` para comprobar que se han descargado correctamente:
 
 ![Imágenes Docker](IMAGENES/image6.png)
 
-## 2.3. Arrancar un contenedor
+## 1.2. Arrancar un contenedor
 
-### 2.3.1. Salir del contenedor y comprobar que se ha parado
+### 1.2.1. Salir del contenedor y comprobar que se ha parado
 
     docker run -it --name ubuntu ubuntu:18.04
 
@@ -48,7 +48,7 @@ Comprobamos que el contenedor se ha parado:
 
 ![Contenedor Ubuntu Parado](IMAGENES/image8.png)
 
-### 2.3.2. Rearrancar el contenedor desde el equipo
+### 1.2.2. Rearrancar el contenedor desde el equipo
 
     docker start ubuntu
 
@@ -56,15 +56,15 @@ Comprobamos que el contenedor se ha parado:
 
 ![Contenedor Ubuntu Funcionando](IMAGENES/image9.png)
 
-### 2.3.3. Mostrar `/etc/os-release` sin entrar en el contenedor
+### 1.2.3. Mostrar `/etc/os-release` sin entrar en el contenedor
 
     docker exec ubuntu cat /etc/os-release
 
 ![Información del Sistema Ubuntu](IMAGENES/image10.png)
 
-## 2.4. Ejecutando servicios desde contenedores
+## 1.3. Ejecutando servicios desde contenedores
 
-### 2.4.1. Arrancar un servidor web Apache con PHP
+### 1.3.1. Arrancar un servidor web Apache con PHP
 
 Arrancamos un contenedor llamado `web` con la imagen `php:7.3-apache`, accesible desde el equipo por el puerto `8181`.
 
@@ -78,7 +78,7 @@ Comprobamos que está funcionando:
 
 ![Contenedor Web Funcionando](IMAGENES/image12.png)
 
-### 2.4.2. Copiar `index.html` al directorio raíz del servidor web
+### 1.3.2. Copiar `index.html` al directorio raíz del servidor web
 
 ![Archivo index.html](IMAGENES/image13.png)
 
@@ -86,14 +86,14 @@ Comprobamos que está funcionando:
 
 ![Archivo index.html Copiado](IMAGENES/image14.png)
 
-### 2.4.3. Copiar `index.php` al directorio raíz del servidor web
+### 1.3.3. Copiar `index.php` al directorio raíz del servidor web
 ![Archivo index.php Copiado](IMAGENES/image15.png)
 
     docker cp index.php web:/var/www/html/index.php
 
 ![Archivo index.php Copiado](IMAGENES/image16.png)
 
-### 2.4.4. Arrancar una base de datos MariaDB
+### 1.3.4. Arrancar una base de datos MariaDB
 
 Arrancamos un contenedor llamado `bbdd` con la imagen `mariadb:latest`, accesible desde el puerto `3336`.
 
@@ -111,7 +111,7 @@ Arrancamos un contenedor llamado `bbdd` con la imagen `mariadb:latest`, accesibl
 
 ![Base de Datos MariaDB Arrancada](IMAGENES/image17.png)
 
-## 2.5. Obtener información de los contenedores
+## 1.4. Obtener información de los contenedores
 
 ### Dirección IP del contenedor web
 
