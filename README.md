@@ -42,29 +42,25 @@ Dentro del contenedor, salimos con:
 
     exit
 
-![Salida del Contenedor Ubuntu](IMAGENES/image8.png)
-
 Comprobamos que el contenedor se ha parado:
 
     docker ps -a
 
-![Contenedor Ubuntu Parado](IMAGENES/image9.png)
+![Contenedor Ubuntu Parado](IMAGENES/image8.png)
 
 ### 2.3.2. Rearrancar el contenedor desde el equipo
 
     docker start ubuntu
 
-![Contenedor Ubuntu Reiniciado](IMAGENES/image10.png)
-
     docker ps
 
-![Contenedor Ubuntu Funcionando](IMAGENES/image11.png)
+![Contenedor Ubuntu Funcionando](IMAGENES/image9.png)
 
 ### 2.3.3. Mostrar `/etc/os-release` sin entrar en el contenedor
 
     docker exec ubuntu cat /etc/os-release
 
-![Información del Sistema Ubuntu](IMAGENES/image12.png)
+![Información del Sistema Ubuntu](IMAGENES/image10.png)
 
 ## 2.4. Ejecutando servicios desde contenedores
 
@@ -74,21 +70,24 @@ Arrancamos un contenedor llamado `web` con la imagen `php:7.3-apache`, accesible
 
     docker run -d --name web -p 8181:80 php:7.3-apache
 
-![Servidor Web Apache Arrancado](IMAGENES/image13.png)
+![Servidor Web Apache Arrancado](IMAGENES/image11.png)
 
 Comprobamos que está funcionando:
 
     docker ps
 
-![Contenedor Web Funcionando](IMAGENES/image14.png)
+![Contenedor Web Funcionando](IMAGENES/image12.png)
 
 ### 2.4.2. Copiar `index.html` al directorio raíz del servidor web
 
+![Archivo index.html](IMAGENES/image13.png)
+
     docker cp index.html web:/var/www/html/index.html
 
-![Archivo index.html Copiado](IMAGENES/image15.png)
+![Archivo index.html Copiado](IMAGENES/image14.png)
 
 ### 2.4.3. Copiar `index.php` al directorio raíz del servidor web
+![Archivo index.php Copiado](IMAGENES/image15.png)
 
     docker cp index.php web:/var/www/html/index.php
 
