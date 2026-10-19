@@ -1,12 +1,11 @@
 # Tarea módulo 2: Ejecutando y gestionando contenedores
 
-**Alumno:** Miguel Ángel Zayas Claros
-
 ## 2.2. Instalación de imágenes
 
 Instalamos los siguientes servicios mediante el comando `docker pull`:
 
     docker pull ubuntu:18.04
+    ![Ubuntu Instalado](IMAGENES/image1.png)
 
     docker pull centos:8
 
