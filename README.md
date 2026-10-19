@@ -5,19 +5,30 @@
 Instalamos los siguientes servicios mediante el comando `docker pull`:
 
     docker pull ubuntu:18.04
-    ![Ubuntu Instalado](IMAGENES/image1.png)
+
+![Ubuntu Instalado](IMAGENES/image1.png)
 
     docker pull centos:8
 
+![CentOS Instalado](IMAGENES/image2.png)
+
     docker pull debian:9
+
+![Debian Instalado](IMAGENES/image3.png)
 
     docker pull mariadb:latest
 
+![MariaDB Instalado](IMAGENES/image4.png)
+
     docker pull mysql:5.7
+
+![MySQL Instalado](IMAGENES/image5.png)
 
 Ejecutamos `docker images` para comprobar que se han descargado correctamente:
 
     docker images
+
+![Imágenes Docker](IMAGENES/image6.png)
 
 ## 2.3. Arrancar un contenedor
 
@@ -25,22 +36,35 @@ Ejecutamos `docker images` para comprobar que se han descargado correctamente:
 
     docker run -it --name ubuntu ubuntu:18.04
 
+![Contenedor Ubuntu Arrancado](IMAGENES/image7.png)
+
 Dentro del contenedor, salimos con:
 
     exit
+
+![Salida del Contenedor Ubuntu](IMAGENES/image8.png)
 
 Comprobamos que el contenedor se ha parado:
 
     docker ps -a
 
+![Contenedor Ubuntu Parado](IMAGENES/image9.png)
+
 ### 2.3.2. Rearrancar el contenedor desde el equipo
 
     docker start ubuntu
+
+![Contenedor Ubuntu Reiniciado](IMAGENES/image10.png)
+
     docker ps
+
+![Contenedor Ubuntu Funcionando](IMAGENES/image11.png)
 
 ### 2.3.3. Mostrar `/etc/os-release` sin entrar en el contenedor
 
     docker exec ubuntu cat /etc/os-release
+
+![Información del Sistema Ubuntu](IMAGENES/image12.png)
 
 ## 2.4. Ejecutando servicios desde contenedores
 
@@ -50,17 +74,25 @@ Arrancamos un contenedor llamado `web` con la imagen `php:7.3-apache`, accesible
 
     docker run -d --name web -p 8181:80 php:7.3-apache
 
+![Servidor Web Apache Arrancado](IMAGENES/image13.png)
+
 Comprobamos que está funcionando:
 
     docker ps
+
+![Contenedor Web Funcionando](IMAGENES/image14.png)
 
 ### 2.4.2. Copiar `index.html` al directorio raíz del servidor web
 
     docker cp index.html web:/var/www/html/index.html
 
+![Archivo index.html Copiado](IMAGENES/image15.png)
+
 ### 2.4.3. Copiar `index.php` al directorio raíz del servidor web
 
     docker cp index.php web:/var/www/html/index.php
+
+![Archivo index.php Copiado](IMAGENES/image16.png)
 
 ### 2.4.4. Arrancar una base de datos MariaDB
 
@@ -78,20 +110,30 @@ Arrancamos un contenedor llamado `bbdd` con la imagen `mariadb:latest`, accesibl
       -e MARIADB_PASSWORD=invitado \
       mariadb:latest
 
+![Base de Datos MariaDB Arrancada](IMAGENES/image17.png)
+
 ## 2.5. Obtener información de los contenedores
 
 ### Dirección IP del contenedor web
 
     docker inspect web | findstr "Ip"
 
+![Dirección IP del Contenedor Web](IMAGENES/image18.png)
+
 ### Redirección de puertos del contenedor web
 
     docker port web
+
+![Puertos del Contenedor Web](IMAGENES/image19.png)
 
 ### Dirección IP del contenedor bbdd
 
     docker inspect bbdd | findstr "Ip"
 
+![Dirección IP del Contenedor MariaDB](IMAGENES/image20.png)
+
 ### Redirección de puertos del contenedor bbdd
 
     docker port bbdd
+
+![Puertos del Contenedor MariaDB](IMAGENES/image21.png)
