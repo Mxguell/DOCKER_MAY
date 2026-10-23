@@ -21,7 +21,7 @@ docker images
 
 **Figura 2.** Verificación de la imagen descargada.
 
-![image2.png](image2.png)
+![image2.png](IMAGENES/image2.png)
 
 ## 2. Obtener la información de la imagen
 
@@ -39,7 +39,7 @@ cat info.txt
 
 **Figura 3.** Obtención y visualización de la información de la imagen.
 
-![image3.png](image3.png)
+![image3.png](IMAGENES/image3.png)
 
 ## 3. Crear un contenedor llamado `modulo3`
 
@@ -53,7 +53,7 @@ Este comando crea el contenedor, pero no lo inicia.
 
 **Figura 4.** Creación del contenedor `modulo3`.
 
-![image4.png](image4.png)
+![image4.png](IMAGENES/image4.png)
 
 Para comprobar que el contenedor se ha creado correctamente, mostramos todos los contenedores del sistema, incluidos los que están detenidos:
 
@@ -63,7 +63,7 @@ docker ps -a
 
 **Figura 5.** Verificación de la creación del contenedor.
 
-![image5.png](image5.png)
+![image5.png](IMAGENES/image5.png)
 
 ## 4. Intentar eliminar la imagen de Ubuntu 20.04
 
@@ -75,7 +75,7 @@ docker rmi ubuntu:20.04
 
 **Figura 6.** Intento de eliminación de la imagen.
 
-![image6.png](image6.png)
+![image6.png](IMAGENES/image6.png)
 
 ### Explicación del resultado
 
@@ -105,7 +105,7 @@ docker stop modulo3
 
 **Figura 7.** Comprobación y, si procede, detención del contenedor.
 
-![image7.png](image7.png)
+![image7.png](IMAGENES/image7.png)
 
 ### 5.2. Eliminar el contenedor
 
@@ -123,7 +123,7 @@ docker ps -a
 
 **Figura 8.** Eliminación y comprobación del contenedor `modulo3`.
 
-![image8.png](image8.png)
+![image8.png](IMAGENES/image8.png)
 
 ### 5.3. Eliminar la imagen de Ubuntu 20.04
 
@@ -137,7 +137,7 @@ Si no existen otros contenedores ni referencias que impidan la operación, Docke
 
 **Figura 9.** Eliminación de la imagen de Ubuntu 20.04.
 
-![image9.png](image9.png)
+![image9.png](IMAGENES/image9.png)
 
 Por último, comprobamos que la imagen ya no aparece en el listado de imágenes locales:
 
