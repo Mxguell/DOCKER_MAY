@@ -145,20 +145,6 @@ Por último, comprobamos que la imagen ya no aparece en el listado de imágenes 
 docker images
 ```
 
-Si la operación se ha completado correctamente, la imagen `ubuntu:20.04` dejará de aparecer en el listado.
-
-## 6. Conclusiones
-
-Durante esta práctica se han realizado las siguientes operaciones:
-
-- Descarga de una imagen de Ubuntu 20.04.
-- Consulta y almacenamiento de la información de una imagen mediante `docker image inspect`.
-- Creación y verificación de un contenedor llamado `modulo3`.
-- Comprobación de las dependencias entre contenedores e imágenes.
-- Eliminación del contenedor y, posteriormente, de la imagen correspondiente.
-
-Esta práctica permite comprender el funcionamiento básico de la gestión de imágenes y contenedores en Docker, así como la importancia de comprobar las dependencias antes de eliminar recursos.
-
 ## 7. Repositorio de GitHub
 
 El código y la documentación de la práctica están disponibles en el siguiente repositorio:
