@@ -93,6 +93,11 @@ Comprobamos que está funcionando:
 
 ![Archivo index.php Copiado](IMAGENES/image16.png)
 
+### 1.3.3.1 Probamos a entrar desde el navegador
+
+![Archivo index.Desde el navegador](IMAGENES/image21.png)
+![Archivo php.Desde el navegador](IMAGENES/image22.png)
+
 ### 1.3.4. Arrancar una base de datos MariaDB
 
 Arrancamos un contenedor llamado `bbdd` con la imagen `mariadb:latest`, accesible desde el puerto `3336`.
@@ -106,6 +111,12 @@ Arrancamos un contenedor llamado `bbdd` con la imagen `mariadb:latest`, accesibl
       -e MARIADB_USER=invitado -e MARIADB_PASSWORD=invitado mariadb:latest
 
 ![Base de Datos MariaDB Arrancada](IMAGENES/image17.png)
+
+Probamos desde Docker primero:
+![Probamos a entrar desde docker a la BDD](IMAGENES/image23.png)
+
+Entramos desde un cliente (DBeaver)
+![Entramos desde DBeaver a la BBDD](IMAGENES/image24.png)
 
 ## 1.4. Obtener información de los contenedores
 
