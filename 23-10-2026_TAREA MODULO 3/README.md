@@ -11,7 +11,7 @@ docker pull ubuntu:20.04
 
 **Figura 1.** Descarga de la imagen de Ubuntu 20.04.
 
-![image1.png](image1.png)
+![image1.png](IMAGENES/image1.png)
 
 Una vez finalizada la descarga, comprobamos que la imagen se encuentra disponible en nuestro sistema local:
 
