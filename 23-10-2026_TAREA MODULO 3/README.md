@@ -144,9 +144,3 @@ Por último, comprobamos que la imagen ya no aparece en el listado de imágenes 
 ```bash
 docker images
 ```
-
-## 7. Repositorio de GitHub
-
-El código y la documentación de la práctica están disponibles en el siguiente repositorio:
-
-[Consultar la documentación en GitHub](https://github.com/Mxguell/DOCKER_MAY/tree/main/23-10-2026_TAREA%20MODULO%203)
