@@ -95,8 +95,8 @@ Comprobamos que está funcionando:
 
 ### 1.3.3.1 Probamos a entrar desde el navegador
 
-![Archivo index.Desde el navegador](IMAGENES/image21.png)
-![Archivo php.Desde el navegador](IMAGENES/image22.png)
+![Archivo index.Desde el navegador](IMAGENES/image22.png)
+![Archivo php.Desde el navegador](IMAGENES/image23.png)
 
 ### 1.3.4. Arrancar una base de datos MariaDB
 
@@ -113,7 +113,7 @@ Arrancamos un contenedor llamado `bbdd` con la imagen `mariadb:latest`, accesibl
 ![Base de Datos MariaDB Arrancada](IMAGENES/image17.png)
 
 Probamos desde Docker primero:
-![Probamos a entrar desde docker a la BDD](IMAGENES/image23.png)
+![Probamos a entrar desde docker a la BDD](IMAGENES/image25.png)
 
 Entramos desde un cliente (DBeaver)
 ![Entramos desde DBeaver a la BBDD](IMAGENES/image24.png)
