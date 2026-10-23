@@ -142,7 +142,3 @@ Por último, comprobamos que la imagen ya no aparece en el listado de imágenes 
 docker images
 ```
 ![image12.png](IMAGENES/image12.png)
-
-```bash
-docker images
-```
