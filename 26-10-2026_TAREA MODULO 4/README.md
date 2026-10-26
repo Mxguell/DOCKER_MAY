@@ -1,184 +1,135 @@
-
 # Tarea 4.2
 
-## 1. Creación de volúmenes Docker
+## 1. Crear los siguientes volúmenes con la orden docker volume:
 
-Creamos los siguientes volúmenes con la orden Docker:
+- **volumen_datos**
 
-### Volumen `volumen_datos`
+  **docker volume create volumen_datos**
 
-```bash
-docker volume create volumen_datos
-```
+  ![Imagen 1](IMAGENES/image1.png)
 
-![Creación del volumen volumen_datos](IMAGENES/image1.png)
+- **volumen_web**
 
-### Volumen `volumen_web`
+  **docker volume create volumen_web**
+  ![Imagen 1](IMAGENES/image2.png)
 
-```bash
-docker volume create volumen_web
-```
+## 2. Una vez creados estos contenedores:
 
-## 2. Creación y configuración de contenedores
+- **Arrancar un contenedor llamado c1 sobre la imagen php:7.4-apache que monte el volumen_web en la ruta /var/www/html**
 
-### Arranque del contenedor `c1`
+  **docker run -d --name c1 -v volumen_web:/var/www/html php:7.4-apache**
 
-Arrancamos un contenedor llamado `c1` sobre la imagen `php:7.4-apache` que monte el volumen `volumen_web` en la ruta `/var/www/html`.
+  ![Imagen 2](IMAGENES/image3.png)
 
-```bash
-docker run -d --name c1 -v volumen_web:/var/www/html php:7.4-apache
-```
+- **Arrancar un contenedor llamado c2 sobre la imagen mariadb que monte el volumen_datos en la ruta /var/lib/mysql y cuya contraseña de root sea admin.**
 
-![Creación del contenedor c1](IMAGENES/image2.png)
+  **docker run -d --name c2 -v volumen_datos:/var/lib/mysql -e MARIADB_ROOT_PASSWORD=admin mariadb**
 
-### Arranque del contenedor `c2`
+  ![Imagen 3](IMAGENES/image4.png)
 
-Arrancamos un contenedor llamado `c2` sobre la imagen `mariadb` que monte el volumen `volumen_datos` en la ruta `/var/lib/mysql` y cuya contraseña de root sea `admin`.
+Comprobamos los contenedores:
 
-```bash
-docker run -d --name c2 -v volumen_datos:/var/lib/mysql -e MARIADB_ROOT_PASSWORD=admin mariadb
-```
+**docker ps -a**
+  ![Imagen 3](IMAGENES/image5.png)
 
-![Creación del contenedor c2](IMAGENES/image3.png)
+## 3.- Parar y borrar el contenedor c2 y tras ello borrar el volumen volumen_datos.
 
-### Comprobación de los contenedores:
+### 1. Parar el contenedor c2
 
-```bash
-docker ps -a
-```
+**docker stop c2**
 
-## 3. Eliminación del contenedor `c2` y del volumen `volumen_datos`
+![Imagen 4](IMAGENES/image6.png)
 
-### 3.1. Parar el contenedor `c2`
+### 2. Borrar el contenedor c2
 
-```bash
-docker stop c2
-```
+**docker rm c2**
 
-![Parada del contenedor c2](IMAGENES/image4.png)
+![Imagen 5](IMAGENES/image7.png)
 
-### 3.2. Borrar el contenedor `c2`
+### 3. Borrar el volumen volumen_datos
 
-```bash
-docker rm c2
-```
+**docker volume rm volumen_datos**
 
-![Eliminación del contenedor c2](IMAGENES/image5.png)
+![Imagen 6](IMAGENES/image8.png)
 
-### 3.3. Borrar el volumen `volumen_datos`
+### 4. Comprobación final
 
-```bash
-docker volume rm volumen_datos
-```
+**docker ps -a**
 
-![Eliminación del volumen volumen_datos](IMAGENES/image6.png)
+![Imagen 7](IMAGENES/image9.png)
 
-### 3.4. Comprobación final de los contenedores:
+**docker volume ls**
 
-```bash
-docker ps -a
-```
-
-![Comprobación final de los contenedores](IMAGENES/image7.png)
-
-### Comprobación final de los volúmenes:
-
-```bash
-docker volume ls
-```
-
-![Comprobación final de los volúmenes](IMAGENES/image8.png)
+![Imagen 8](IMAGENES/image10.png)
 
 ---
 
 # Tarea 4.3
 
-## 1. Creación de la carpeta y del archivo HTML
+## 1.- Crea una carpeta llamada saludo y dentro de ella crea un fichero llamado index.html con el siguiente contenido:
 
-Crea una carpeta llamada `saludo` y dentro de ella crea un fichero llamado `index.html` con el siguiente contenido:
-
-```html
-<h1>HOLA SOY XXXXXX</h1>
-```
+`<h1>HOLA SOY XXXXXX</h1>`
 
 Deberás sustituir ese XXXXX por tu nombre.
 
-![Creación de la carpeta saludo](IMAGENES/image9.png)
+![Imagen 9](IMAGENES/image11.png)
 
-![Creación del archivo index.html](IMAGENES/image10.png)
+![Imagen 10](IMAGENES/image12.png)
 
-## 2. Arranque de dos contenedores con bind mount
+## 2.- Una vez hecho esto arrancar dos contenedores basados en la imagen php:7.4-apache que hagan un bind mount de la carpeta saludo en la carpeta /var/www/html del contenedor.
 
-Una vez hecho esto, arrancamos dos contenedores basados en la imagen `php:7.4-apache` que hagan un bind mount de la carpeta `saludo` en la carpeta `/var/www/html` del contenedor.
+**docker run -d --name c1 -p 8181:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apache**
 
-### Contenedor `c1`
+![Imagen 11](IMAGENES/image13.png)
 
-```powershell
-docker run -d --name c1 -p 8181:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apache
-```
+**docker run -d --name c2 -p 8282:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apache**
 
-![Arranque del contenedor c1](IMAGENES/image11.png)
+![Imagen 12](IMAGENES/image14.png)
 
-### Contenedor `c2`
+Comprobar que funcionan:
 
-```powershell
-docker run -d --name c2 -p 8282:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apache
-```
+**docker ps**
 
-![Arranque del contenedor c2](IMAGENES/image12.png)
+![Imagen 13](IMAGENES/image15.png)
 
-### Comprobación de los contenedores:
+Comprobamos desde el navegador:
 
-```bash
-docker ps
-```
+![Imagen 14](IMAGENES/image16.png)
 
-![Comprobación de los contenedores en ejecución](IMAGENES/image13.png)
-
-### Comprobación desde el navegador:
-
-![Primer contenedor](IMAGENES/image14.png)
-
-![Segundo contenedor](IMAGENES/image15.png)
+![Imagen 15](IMAGENES/image17.png)
 
 ---
 
 # Tarea 4.4
 
-## 1. Creación de la carpeta y del archivo:
+Creamos la carpeta y el archivo
 
-![Creación de la carpeta y del archivo](IMAGENES/image16.png)
+![Imagen 16](IMAGENES/image18.png)
 
-## 2. Creación del Dockerfile:
+Creamos Dockerfile:
 
-![Creación del Dockerfile](IMAGENES/image17.png)
+![Imagen 17](IMAGENES/image19.png)
 
-## 3. Construcción de la imagen Docker:
+Construimos la imagen:
 
-```bash
-docker build -t php-debug
-```
+**docker build -t php-debug**
 
-![Construcción de la imagen php-debug](IMAGENES/image18.png)
+![Imagen 18](IMAGENES/image20.png)
 
-## 4. Arranque del contenedor:
+Arrancamos el contenedor:
 
-```powershell
-docker run -d --name debugPHP -p 8585:80 -p 9003:9003 -v "${PWD}\debug:/var/www/html" php-debug
-```
+**docker run -d --name debugPHP -p 8585:80 -p 9003:9003 -v "${PWD}\debug:/var/www/html" php-debug**
 
-![Arranque del contenedor debugPHP](IMAGENES/image19.png)
+![Imagen 19](IMAGENES/image21.png)
 
-## 5. Comprobaciones
+Comprobamos desde terminal:
 
-### Comprobación desde la terminal:
+![Imagen 20](IMAGENES/image22.png)
 
-![Comprobación desde la terminal](IMAGENES/image20.png)
+Comprobamos desde navegador:
 
-### Comprobación desde el navegador:
+![Imagen 21](IMAGENES/image23.png)
 
-![Comprobación desde el navegador](IMAGENES/image21.png)
+Vemos el bind mount:
 
-### Comprobación del bind mount:
-
-![Comprobación del bind mount](IMAGENES/image22.png)
+![Imagen 22](IMAGENES/image24.png)
