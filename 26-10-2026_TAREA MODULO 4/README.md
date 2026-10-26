@@ -82,7 +82,7 @@ docker volume ls
 
 ---
 
-# Tarea 4.3
+# Parte 4.3
 
 ## 1. Crea una carpeta llamada saludo y dentro de ella crea un fichero llamado index.html con el siguiente contenido:
 
@@ -124,7 +124,7 @@ Comprobamos desde el navegador:
 
 ---
 
-# Tarea 4.4
+# Parte 4.4
 
 Creamos la carpeta y el archivo
 
