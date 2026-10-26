@@ -3,9 +3,9 @@
 ## 1. Crear los siguientes volúmenes con la orden docker volume:
 
 - **volumen_datos**
-
+```bash
   **docker volume create volumen_datos**
-
+```
   ![Imagen 1](IMAGENES/image1.png)
 
 - **volumen_web**
