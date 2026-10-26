@@ -4,7 +4,7 @@
 
 - **volumen_datos**
 ```bash
-  **docker volume create volumen_datos**
+  docker volume create volumen_datos
 ```
   ![Imagen 1](IMAGENES/image1.png)
 
