@@ -11,7 +11,7 @@ Creamos los siguientes volúmenes con la orden Docker:
 docker volume create volumen_datos
 ```
 
-![Creación del volumen volumen_datos](IMAGENES/image1.jpg)
+![Creación del volumen volumen_datos](IMAGENES/image1.png)
 
 ### Volumen `volumen_web`
 
@@ -29,7 +29,7 @@ Arrancamos un contenedor llamado `c1` sobre la imagen `php:7.4-apache` que monte
 docker run -d --name c1 -v volumen_web:/var/www/html php:7.4-apache
 ```
 
-![Creación del contenedor c1](IMAGENES/image2.jpg)
+![Creación del contenedor c1](IMAGENES/image2.png)
 
 ### Arranque del contenedor `c2`
 
@@ -39,7 +39,7 @@ Arrancamos un contenedor llamado `c2` sobre la imagen `mariadb` que monte el vol
 docker run -d --name c2 -v volumen_datos:/var/lib/mysql -e MARIADB_ROOT_PASSWORD=admin mariadb
 ```
 
-![Creación del contenedor c2](IMAGENES/image3.jpg)
+![Creación del contenedor c2](IMAGENES/image3.png)
 
 ### Comprobación de los contenedores
 
@@ -57,7 +57,7 @@ docker ps -a
 docker stop c2
 ```
 
-![Parada del contenedor c2](IMAGENES/image4.jpg)
+![Parada del contenedor c2](IMAGENES/image4.png)
 
 ### 3.2. Borrar el contenedor `c2`
 
@@ -65,7 +65,7 @@ docker stop c2
 docker rm c2
 ```
 
-![Eliminación del contenedor c2](IMAGENES/image5.jpg)
+![Eliminación del contenedor c2](IMAGENES/image5.png)
 
 ### 3.3. Borrar el volumen `volumen_datos`
 
@@ -73,7 +73,7 @@ docker rm c2
 docker volume rm volumen_datos
 ```
 
-![Eliminación del volumen volumen_datos](IMAGENES/image6.jpg)
+![Eliminación del volumen volumen_datos](IMAGENES/image6.png)
 
 ### 3.4. Comprobación final
 
@@ -83,7 +83,7 @@ Comprobamos los contenedores existentes:
 docker ps -a
 ```
 
-![Comprobación final de los contenedores](IMAGENES/image7.jpg)
+![Comprobación final de los contenedores](IMAGENES/image7.png)
 
 Comprobamos los volúmenes existentes:
 
@@ -91,7 +91,7 @@ Comprobamos los volúmenes existentes:
 docker volume ls
 ```
 
-![Comprobación final de los volúmenes](IMAGENES/image8.jpg)
+![Comprobación final de los volúmenes](IMAGENES/image8.png)
 
 ---
 
@@ -107,9 +107,9 @@ Crea una carpeta llamada `saludo` y dentro de ella crea un fichero llamado `inde
 
 Deberás sustituir ese XXXXX por tu nombre.
 
-![Creación de la carpeta saludo](IMAGENES/image9.jpg)
+![Creación de la carpeta saludo](IMAGENES/image9.png)
 
-![Creación del archivo index.html](IMAGENES/image10.jpg)
+![Creación del archivo index.html](IMAGENES/image10.png)
 
 ## 2. Arranque de dos contenedores con bind mount
 
@@ -121,7 +121,7 @@ Una vez hecho esto, arrancamos dos contenedores basados en la imagen `php:7.4-ap
 docker run -d --name c1 -p 8181:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apache
 ```
 
-![Arranque del contenedor c1](IMAGENES/image11.jpg)
+![Arranque del contenedor c1](IMAGENES/image11.png)
 
 ### Contenedor `c2`
 
@@ -129,7 +129,7 @@ docker run -d --name c1 -p 8181:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apac
 docker run -d --name c2 -p 8282:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apache
 ```
 
-![Arranque del contenedor c2](IMAGENES/image12.jpg)
+![Arranque del contenedor c2](IMAGENES/image12.png)
 
 ### Comprobación de los contenedores
 
@@ -139,15 +139,15 @@ Comprobar que funcionan:
 docker ps
 ```
 
-![Comprobación de los contenedores en ejecución](IMAGENES/image13.jpg)
+![Comprobación de los contenedores en ejecución](IMAGENES/image13.png)
 
 ### Comprobación desde el navegador
 
 Comprobamos desde el navegador:
 
-![Comprobación del primer contenedor desde el navegador](IMAGENES/image14.jpg)
+![Comprobación del primer contenedor desde el navegador](IMAGENES/image14.png)
 
-![Comprobación del segundo contenedor desde el navegador](IMAGENES/image15.jpg)
+![Comprobación del segundo contenedor desde el navegador](IMAGENES/image15.png)
 
 ---
 
@@ -157,13 +157,13 @@ Comprobamos desde el navegador:
 
 Creamos la carpeta y el archivo.
 
-![Creación de la carpeta y del archivo](IMAGENES/image16.jpg)
+![Creación de la carpeta y del archivo](IMAGENES/image16.png)
 
 ## 2. Creación del Dockerfile
 
 Creamos Dockerfile:
 
-![Creación del Dockerfile](IMAGENES/image17.jpg)
+![Creación del Dockerfile](IMAGENES/image17.png)
 
 ## 3. Construcción de la imagen Docker
 
@@ -173,7 +173,7 @@ Construimos la imagen:
 docker build -t php-debug
 ```
 
-![Construcción de la imagen php-debug](IMAGENES/image18.jpg)
+![Construcción de la imagen php-debug](IMAGENES/image18.png)
 
 ## 4. Arranque del contenedor
 
@@ -183,7 +183,7 @@ Arrancamos el contenedor:
 docker run -d --name debugPHP -p 8585:80 -p 9003:9003 -v "${PWD}\debug:/var/www/html" php-debug
 ```
 
-![Arranque del contenedor debugPHP](IMAGENES/image19.jpg)
+![Arranque del contenedor debugPHP](IMAGENES/image19.png)
 
 ## 5. Comprobaciones
 
@@ -191,16 +191,16 @@ docker run -d --name debugPHP -p 8585:80 -p 9003:9003 -v "${PWD}\debug:/var/www/
 
 Comprobamos desde terminal:
 
-![Comprobación desde la terminal](IMAGENES/image20.jpg)
+![Comprobación desde la terminal](IMAGENES/image20.png)
 
 ### Comprobación desde el navegador
 
 Comprobamos desde navegador:
 
-![Comprobación desde el navegador](IMAGENES/image21.jpg)
+![Comprobación desde el navegador](IMAGENES/image21.png)
 
 ### Comprobación del bind mount
 
 Vemos el bind mount:
 
-![Comprobación del bind mount](IMAGENES/image22.jpg)
+![Comprobación del bind mount](IMAGENES/image22.png)
