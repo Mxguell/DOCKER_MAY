@@ -41,9 +41,7 @@ docker run -d --name c2 -v volumen_datos:/var/lib/mysql -e MARIADB_ROOT_PASSWORD
 
 ![Creación del contenedor c2](IMAGENES/image3.png)
 
-### Comprobación de los contenedores
-
-Comprobamos los contenedores:
+### Comprobación de los contenedores:
 
 ```bash
 docker ps -a
@@ -75,9 +73,7 @@ docker volume rm volumen_datos
 
 ![Eliminación del volumen volumen_datos](IMAGENES/image6.png)
 
-### 3.4. Comprobación final
-
-Comprobamos los contenedores existentes:
+### 3.4. Comprobación final de los contenedores:
 
 ```bash
 docker ps -a
@@ -85,7 +81,7 @@ docker ps -a
 
 ![Comprobación final de los contenedores](IMAGENES/image7.png)
 
-Comprobamos los volúmenes existentes:
+### Comprobación final de los volúmenes:
 
 ```bash
 docker volume ls
@@ -131,9 +127,7 @@ docker run -d --name c2 -p 8282:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apac
 
 ![Arranque del contenedor c2](IMAGENES/image12.png)
 
-### Comprobación de los contenedores
-
-Comprobar que funcionan:
+### Comprobación de los contenedores:
 
 ```bash
 docker ps
@@ -141,33 +135,25 @@ docker ps
 
 ![Comprobación de los contenedores en ejecución](IMAGENES/image13.png)
 
-### Comprobación desde el navegador
+### Comprobación desde el navegador:
 
-Comprobamos desde el navegador:
+![Primer contenedor](IMAGENES/image14.png)
 
-![Comprobación del primer contenedor desde el navegador](IMAGENES/image14.png)
-
-![Comprobación del segundo contenedor desde el navegador](IMAGENES/image15.png)
+![Segundo contenedor](IMAGENES/image15.png)
 
 ---
 
 # Tarea 4.4
 
-## 1. Creación de la carpeta y del archivo
-
-Creamos la carpeta y el archivo.
+## 1. Creación de la carpeta y del archivo:
 
 ![Creación de la carpeta y del archivo](IMAGENES/image16.png)
 
-## 2. Creación del Dockerfile
-
-Creamos Dockerfile:
+## 2. Creación del Dockerfile:
 
 ![Creación del Dockerfile](IMAGENES/image17.png)
 
-## 3. Construcción de la imagen Docker
-
-Construimos la imagen:
+## 3. Construcción de la imagen Docker:
 
 ```bash
 docker build -t php-debug
@@ -175,9 +161,7 @@ docker build -t php-debug
 
 ![Construcción de la imagen php-debug](IMAGENES/image18.png)
 
-## 4. Arranque del contenedor
-
-Arrancamos el contenedor:
+## 4. Arranque del contenedor:
 
 ```powershell
 docker run -d --name debugPHP -p 8585:80 -p 9003:9003 -v "${PWD}\debug:/var/www/html" php-debug
@@ -187,20 +171,14 @@ docker run -d --name debugPHP -p 8585:80 -p 9003:9003 -v "${PWD}\debug:/var/www/
 
 ## 5. Comprobaciones
 
-### Comprobación desde la terminal
-
-Comprobamos desde terminal:
+### Comprobación desde la terminal:
 
 ![Comprobación desde la terminal](IMAGENES/image20.png)
 
-### Comprobación desde el navegador
-
-Comprobamos desde navegador:
+### Comprobación desde el navegador:
 
 ![Comprobación desde el navegador](IMAGENES/image21.png)
 
-### Comprobación del bind mount
-
-Vemos el bind mount:
+### Comprobación del bind mount:
 
 ![Comprobación del bind mount](IMAGENES/image22.png)
