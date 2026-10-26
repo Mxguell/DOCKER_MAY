@@ -2,13 +2,13 @@
 
 ## 1. Crear los siguientes volúmenes con la orden docker volume:
 
-- **volumen_datos**
+**volumen_datos**
 ```bash
 docker volume create volumen_datos
 ```
   ![Imagen 1](IMAGENES/image1.png)
 
-- **volumen_web**
+**volumen_web**
 
 ```bash
 docker volume create volumen_web
@@ -17,7 +17,7 @@ docker volume create volumen_web
 
 ## 2. Una vez creados estos contenedores:
 
-- **Arrancar un contenedor llamado c1 sobre la imagen php:7.4-apache que monte el volumen_web en la ruta /var/www/html**
+**Arrancar un contenedor llamado c1 sobre la imagen php:7.4-apache que monte el volumen_web en la ruta /var/www/html**
 
 ```bash
 docker run -d --name c1 -v volumen_web:/var/www/html php:7.4-apache
@@ -25,7 +25,7 @@ docker run -d --name c1 -v volumen_web:/var/www/html php:7.4-apache
 
   ![Imagen 2](IMAGENES/image3.png)
 
-- **Arrancar un contenedor llamado c2 sobre la imagen mariadb que monte el volumen_datos en la ruta /var/lib/mysql y cuya contraseña de root sea admin.**
+**Arrancar un contenedor llamado c2 sobre la imagen mariadb que monte el volumen_datos en la ruta /var/lib/mysql y cuya contraseña de root sea admin.**
 
 ```bash
 docker run -d --name c2 -v volumen_datos:/var/lib/mysql -e MARIADB_ROOT_PASSWORD=admin mariadb
@@ -84,7 +84,7 @@ docker volume ls
 
 # Tarea 4.3
 
-## 1.- Crea una carpeta llamada saludo y dentro de ella crea un fichero llamado index.html con el siguiente contenido:
+## 1. Crea una carpeta llamada saludo y dentro de ella crea un fichero llamado index.html con el siguiente contenido:
 
 `<h1>HOLA SOY XXXXXX</h1>`
 
@@ -94,7 +94,7 @@ Deberás sustituir ese XXXXX por tu nombre.
 
 ![Imagen 10](IMAGENES/image12.png)
 
-## 2.- Una vez hecho esto arrancar dos contenedores basados en la imagen php:7.4-apache que hagan un bind mount de la carpeta saludo en la carpeta /var/www/html del contenedor.
+## 2. Una vez hecho esto arrancar dos contenedores basados en la imagen php:7.4-apache que hagan un bind mount de la carpeta saludo en la carpeta /var/www/html del contenedor.
 
 ```bash
 docker run -d --name c1 -p 8181:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apache
