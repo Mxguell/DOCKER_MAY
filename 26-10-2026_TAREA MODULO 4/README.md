@@ -4,61 +4,79 @@
 
 - **volumen_datos**
 ```bash
-  docker volume create volumen_datos
+docker volume create volumen_datos
 ```
   ![Imagen 1](IMAGENES/image1.png)
 
 - **volumen_web**
 
-  **docker volume create volumen_web**
+```bash
+docker volume create volumen_web
+```
   ![Imagen 1](IMAGENES/image2.png)
 
 ## 2. Una vez creados estos contenedores:
 
 - **Arrancar un contenedor llamado c1 sobre la imagen php:7.4-apache que monte el volumen_web en la ruta /var/www/html**
 
-  **docker run -d --name c1 -v volumen_web:/var/www/html php:7.4-apache**
+```bash
+docker run -d --name c1 -v volumen_web:/var/www/html php:7.4-apache
+```
 
   ![Imagen 2](IMAGENES/image3.png)
 
 - **Arrancar un contenedor llamado c2 sobre la imagen mariadb que monte el volumen_datos en la ruta /var/lib/mysql y cuya contraseña de root sea admin.**
 
-  **docker run -d --name c2 -v volumen_datos:/var/lib/mysql -e MARIADB_ROOT_PASSWORD=admin mariadb**
+```bash
+docker run -d --name c2 -v volumen_datos:/var/lib/mysql -e MARIADB_ROOT_PASSWORD=admin mariadb
+```
 
   ![Imagen 3](IMAGENES/image4.png)
 
 Comprobamos los contenedores:
 
-**docker ps -a**
+```bash
+docker ps -a
+```
   ![Imagen 3](IMAGENES/image5.png)
 
 ## 3.- Parar y borrar el contenedor c2 y tras ello borrar el volumen volumen_datos.
 
 ### 1. Parar el contenedor c2
 
-**docker stop c2**
+```bash
+docker stop c2
+```
 
 ![Imagen 4](IMAGENES/image6.png)
 
 ### 2. Borrar el contenedor c2
 
-**docker rm c2**
+```bash
+docker rm c2
+```
 
 ![Imagen 5](IMAGENES/image7.png)
 
 ### 3. Borrar el volumen volumen_datos
 
-**docker volume rm volumen_datos**
+```bash
+docker volume rm volumen_datos
+```
 
 ![Imagen 6](IMAGENES/image8.png)
 
 ### 4. Comprobación final
 
-**docker ps -a**
+```bash
+docker ps -a
+```
 
 ![Imagen 7](IMAGENES/image9.png)
 
-**docker volume ls**
+```bash
+docker volume ls
+```
 
 ![Imagen 8](IMAGENES/image10.png)
 
@@ -78,17 +96,23 @@ Deberás sustituir ese XXXXX por tu nombre.
 
 ## 2.- Una vez hecho esto arrancar dos contenedores basados en la imagen php:7.4-apache que hagan un bind mount de la carpeta saludo en la carpeta /var/www/html del contenedor.
 
-**docker run -d --name c1 -p 8181:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apache**
+```bash
+docker run -d --name c1 -p 8181:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apache
+```
 
 ![Imagen 11](IMAGENES/image13.png)
 
-**docker run -d --name c2 -p 8282:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apache**
+```bash
+docker run -d --name c2 -p 8282:80 -v "${PWD}\saludo:/var/www/html" php:7.4-apache
+```
 
 ![Imagen 12](IMAGENES/image14.png)
 
 Comprobar que funcionan:
 
-**docker ps**
+```bash
+docker ps
+```
 
 ![Imagen 13](IMAGENES/image15.png)
 
@@ -112,13 +136,17 @@ Creamos Dockerfile:
 
 Construimos la imagen:
 
-**docker build -t php-debug**
+```bash
+docker build -t php-debug
+```
 
 ![Imagen 18](IMAGENES/image20.png)
 
 Arrancamos el contenedor:
 
-**docker run -d --name debugPHP -p 8585:80 -p 9003:9003 -v "${PWD}\debug:/var/www/html" php-debug**
+```bash
+docker run -d --name debugPHP -p 8585:80 -p 9003:9003 -v "${PWD}\debug:/var/www/html" php-debug
+```
 
 ![Imagen 19](IMAGENES/image21.png)
 
