@@ -1,5 +1,5 @@
 
-**Tarea 5.2**  
+*Tarea 5.2*  
 **1\. Creamos la primera red denominada “Red1”:**  
 
 ```bash
