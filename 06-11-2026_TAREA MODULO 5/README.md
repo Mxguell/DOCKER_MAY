@@ -48,7 +48,7 @@ docker network inspect red2
 
 **![](IMAGENES/image5.png)**  
 
-# Tarea 5.2
+# Tarea 5.3
 
 **1\. Comenzamos creando un contenedor (u1) poniendo en ejecución un contenedor de la imagen ubuntu:20.04:**  
 
